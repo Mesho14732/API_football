@@ -1,4 +1,4 @@
-const League = require('../models/league');
+const League = require('../models/League');
 
 exports.createLeague = async (req, res, next) => {
   try {
@@ -26,11 +26,11 @@ exports.joinLeague = async (req, res, next) => {
   }
 };
 
-exports.getUserLeagues = async (req, res, next) => {
-  try {
-    const leagues = await League.find({ members: req.user.id });
-    res.json(leagues);
-  } catch (err) {
-    next(err);
-  }
-};
+exports.getLeagues = async (req, res, next) => {
+    try {
+      const leagues = await League.find({ members: req.user.id });
+      res.json(leagues);
+    } catch (err) {
+      next(err);
+    }
+  };
